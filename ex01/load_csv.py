@@ -13,8 +13,8 @@ dimensions and returns it as a pandas.DataFrame file
         if (not path.endswith(".csv")):
             raise Exception("ExtensionError: file must be type .csv")
         file = pd.read_csv(path)
+        print("Loading dataset of dimensions:", file.shape)
     except Exception as msg:
         print(msg)
         return None
-    print("Loading dataset of dimensions:", file.shape)
     return file
