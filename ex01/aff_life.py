@@ -3,12 +3,11 @@ import matplotlib.pyplot as plt
 import pandas as pd
 
 
-if __name__ == "__main__":
+def main():
     file = load("life_expectancy_years.csv")
     file = file.loc[file['country'] == 'France']
-    x = file.iloc[:, 1:282]
-    y = file.iloc[0][1:282]
-    x = x.columns
+    x = file.columns[1:]
+    y = file.iloc[0][1:]
     x = pd.to_numeric(x)
     plt.xticks(range(1800, 2081, 40))
     plt.yticks(range(30, 101, 10))
@@ -17,3 +16,7 @@ if __name__ == "__main__":
     plt.ylabel('Life expectancy')
     plt.xlabel('Year')
     plt.show()
+
+
+if __name__ == "__main__":
+    main()
