@@ -3,3 +3,4 @@ __pycache__
 life_expectancy_years.csv
 .DS_Store
 income_per_person_gdppercapita_ppp_inflation_adjusted.csv
+population_total.csv
