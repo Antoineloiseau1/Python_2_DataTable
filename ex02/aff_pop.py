@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 
 def main():
     """
-This program displays the population by years of a selectd country
+This program displays the population by years of a selected country
 """
     # opening file
     file = load("population_total.csv")
@@ -24,8 +24,6 @@ This program displays the population by years of a selectd country
 
     # setting y_plots for each contry
     exp = {'K': 1e3, 'M': 1e6, 'B': 1e9}
-    # defaults = {'1': 1, '0': 1, '2': 1, '5': 1, '3': 1, '4': 1}
-    # exp = defaults | exp
     y_first = first.iloc[0][1:252]
     y_first = [int(float(i[:-1]) * exp.get(i[-1], 1)) for i in y_first]
     y_first = pd.DataFrame(y_first)
