@@ -12,7 +12,7 @@ This program displays the population by years of a selectd country
 
     # Extracting Data from contries
     first = file.loc[file['country'] == 'France']
-    second = file.loc[file['country'] == 'Afghanistan']
+    second = file.loc[file['country'] == 'Belgium']
 
     # setting x_plots for each contry
     first_name = first.iloc[0][0]
@@ -23,12 +23,14 @@ This program displays the population by years of a selectd country
     x_second = pd.to_numeric(x_second)
 
     # setting y_plots for each contry
-    exp = {'k': 1e3, 'm': 1e6, 'b': 1e9}
+    exp = {'K': 1e3, 'M': 1e6, 'B': 1e9}
+    # defaults = {'1': 1, '0': 1, '2': 1, '5': 1, '3': 1, '4': 1}
+    # exp = defaults | exp
     y_first = first.iloc[0][1:252]
-    y_first = [int(float(i[:-1]) * exp[i[-1].lower()]) for i in y_first]
+    y_first = [int(float(i[:-1]) * exp.get(i[-1], 1)) for i in y_first]
     y_first = pd.DataFrame(y_first)
     y_second = second.iloc[0][1:252]
-    y_second = [int(float(i[:-1]) * exp[i[-1].lower()]) for i in y_second]
+    y_second = [int(float(i[:-1]) * exp.get(i[-1], 1)) for i in y_second]
     y_second = pd.DataFrame(y_second)
 
     # Setting ticks
