@@ -8,11 +8,11 @@ Opens a .csv file given by path, display its \
 dimensions and returns it as a pandas.DataFrame file
 """
     try:
+        file = pd.read_csv(path)
         if type(path) is not str:
             raise TypeError("TypeError: file must be type .csv")
         if (not path.endswith(".csv")):
             raise Exception("ExtensionError: file must be type .csv")
-        file = pd.read_csv(path)
     except Exception as msg:
         print(msg)
         return None
